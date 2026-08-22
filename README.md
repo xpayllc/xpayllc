@@ -1,4 +1,3 @@
-````md
 <div align="center">
 
 # ⚡ X Pay LLC
@@ -21,14 +20,14 @@
 
 It can **pay**.
 
-We're focused on making payments simple for:
+We are focused on making payments simple for:
 
-🤖 AI Agents  
-🌐 APIs  
-⚙️ SaaS Platforms  
-🧠 AI Products  
-💻 Developers  
-🔗 Onchain Applications  
+* 🤖 AI Agents
+* 🌐 APIs
+* ⚙️ SaaS Platforms
+* 🧠 AI Products
+* 💻 Developers
+* 🔗 Onchain Applications
 
 Our vision is simple:
 
@@ -36,24 +35,21 @@ Our vision is simple:
 
 ---
 
-## 🤖 Why Are We Building X Pay?
+## 🤖 Why X Pay?
 
 AI agents are becoming capable of doing real work.
 
 They can discover services, use tools, access data, automate workflows, and make decisions.
 
-But there is still one major missing piece:
+But one major piece is still missing:
 
 ### 💳 Payments
 
-Most payment systems were built around people.
+Most payment systems were built for people.
 
 People open checkout pages.
-
 People enter card details.
-
 People create accounts.
-
 People purchase subscriptions.
 
 That model was never designed for autonomous software.
@@ -64,7 +60,7 @@ That model was never designed for autonomous software.
 
 ## ⚡ Payments for the AI Economy
 
-We believe the next generation of software needs a payment experience that is:
+We believe the next generation of software needs payments that are:
 
 ### 🤖 Agent Friendly
 
@@ -72,76 +68,79 @@ AI agents should be able to interact with paid services naturally.
 
 ### 🌍 Global
 
-Software operates across borders.
+Software operates across borders. Payments should too.
 
-Payments should too.
+### ⚡ Fast
 
-### ⚡ Instant
-
-Digital services shouldn't have to wait for complicated payment processes.
+Digital services should not be slowed down by outdated payment experiences.
 
 ### 💸 Pay-As-You-Use
 
 Not every product needs a subscription.
 
-Sometimes you should simply pay for what you use.
+Pay for what you use, when you use it.
 
 ### 🔗 Flexible
 
-The future of payments will connect both traditional and onchain finance.
+The future of payments will connect traditional finance and onchain payments.
 
 ---
 
 ## 🌐 One Payment World
 
-X Pay is building toward a world where different payment rails can work together.
+X Pay is building toward a world where different payment methods work together.
 
 ### 🏦 Bank
 
-Traditional payments for businesses, applications, and everyday users.
+Traditional payment rails for businesses, applications, and everyday users.
 
 ### 🔵 Base
 
-Fast and accessible onchain payments.
+Fast and efficient onchain payments.
 
 ### 🟡 BNB Chain
 
-Scalable payments for the global onchain ecosystem.
+Scalable onchain payments for the global digital economy.
 
 <br>
 
-**Bank + Onchain + AI**
+### **Bank + Onchain + AI**
 
-All connected through one payment experience.
+One connected payment experience.
 
 ---
 
 ## 💡 What We Believe
 
-> ### Payments were built for people.  
+> ### Payments were built for people.
+>
 > ### The next generation needs payments built for software.
 
 We believe:
 
-- 🤖 AI agents need native payment capabilities
-- ⚡ Payments should happen with minimal friction
-- 💳 Pay-per-use should be easier than subscriptions
-- 🌍 Digital payments should work globally
-- 🔗 Bank and onchain payments should work together
-- 🧠 Software should be able to transact intelligently
-- 🚀 Payments should become a native part of the internet
+* 🤖 AI agents need native payment capabilities
+* ⚡ Payments should happen with minimal friction
+* 💳 Pay-per-use should be easier than subscriptions
+* 🌍 Digital payments should work globally
+* 🔗 Bank and onchain payments should work together
+* 🧠 Software should be able to transact intelligently
+* 🚀 Payments should become a native part of the internet
 
 ---
 
 ## 🎯 Our Mission
 
-Our mission is to make payments **native to software**.
+Our mission is simple:
 
-We're building toward a future where AI agents, applications, APIs, and digital services can exchange value naturally.
+### **Make payments native to software.**
+
+We are building toward a future where:
+
+**AI agents, applications, APIs, and digital services can exchange value naturally.**
 
 No unnecessary friction.
 
-No outdated payment experiences.
+No outdated checkout experiences.
 
 No forcing autonomous software into payment systems designed only for humans.
 
@@ -149,29 +148,33 @@ No forcing autonomous software into payment systems designed only for humans.
 
 ## 🔮 The Future We See
 
-```text
-        🤖 AI Agents
-             +
-        🌐 APIs & Apps
-             +
-        💳 Payments
-             +
-        🔗 Onchain
-             ↓
-     ⚡ Autonomous Commerce
-````
+<div align="center">
 
-Software will increasingly be able to:
+### 🤖 Discover
 
-### Discover → Decide → Pay → Continue
+### ↓
 
-And X Pay wants to help power that future.
+### 🧠 Decide
+
+### ↓
+
+### 💳 Pay
+
+### ↓
+
+### ⚡ Continue
+
+</div>
+
+The next generation of software will not just communicate.
+
+It will transact.
+
+And X Pay is building the payment layer for that future.
 
 ---
 
-## 🛠️ Built for the Next Internet
-
-X Pay is being built for:
+## 🛠️ Built For
 
 |    |                            |
 | -- | -------------------------- |
@@ -190,17 +193,16 @@ X Pay is being built for:
 
 ## 💚 X Pay LLC
 
-### Pay Anything. Instantly. Programmatically.
+### **Pay Anything. Instantly. Programmatically.**
 
-**Building the payment layer for AI agents and autonomous software.**
+Building the payment layer for **AI agents and autonomous software**.
 
 <br>
 
-`AI` • `Payments` • `APIs` • `Base` • `BNB Chain` • `Automation`
+**🤖 AI • 💳 Payments • 🌐 APIs • 🔵 Base • 🟡 BNB Chain • ⚡ Automation**
 
 <br>
 
 ### ⚡ The Future of Payments is Programmable.
 
 </div>
-```
