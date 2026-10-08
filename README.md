@@ -1,208 +1,67 @@
 <div align="center">
 
-# ⚡ X Pay LLC
+<img src="https://www.api-xpay.com/logo.png" alt="X Pay" width="88" height="88">
 
-### Payments Built for the Next Generation of Software
+# X Pay
+### Payments for software. Built around x402.
 
-**AI Agents • APIs • Payments • Onchain • Automation**
+Pay-per-request APIs and programmable payments for agents, applications, and developers.
 
-<br>
+**[Explore X Pay →](https://x-pay.llc/)** &nbsp; · &nbsp; [API catalog](https://www.api-xpay.com/) &nbsp; · &nbsp; [Follow on X](https://x.com/x_pay_llc)
 
-> **Pay Anything. Instantly. Programmatically.**
+![x402 v2](https://img.shields.io/badge/x402-v2-111111?style=flat-square)
+![Base](https://img.shields.io/badge/Network-Base-0052FF?style=flat-square)
+![USDC](https://img.shields.io/badge/Payments-USDC-2775CA?style=flat-square)
 
 </div>
 
 ---
 
-## 🚀 What is X Pay?
+### Make every request count
 
-**X Pay LLC** is building a modern payment layer for a world where software can do more than communicate.
+X Pay connects paid API access with on-chain payments. Explore utility and AI endpoints, inspect payment requirements, and build software that can pay for the services it uses.
 
-It can **pay**.
+| Use paid APIs | Integrate payments | Explore the ecosystem |
+| --- | --- | --- |
+| Discover available resources and request formats. | Inspect the facilitator’s advertised capabilities. | Follow our public integrations and listing records. |
+| [Browse APIs →](https://www.api-xpay.com/) | [View capabilities →](https://facilitator-xpay.llc/supported) | [View directory profile →](https://x402blockchains.com/facilitators/xpay) |
 
-We are focused on making payments simple for:
+### Start building
 
-* 🤖 AI Agents
-* 🌐 APIs
-* ⚙️ SaaS Platforms
-* 🧠 AI Products
-* 💻 Developers
-* 🔗 Onchain Applications
+**1 · Discover** — Browse the [API catalog](https://www.api-xpay.com/) or read its [OpenAPI specification](https://www.api-xpay.com/openapi.json).
 
-Our vision is simple:
+**2 · Inspect** — Check the resource’s payment requirements and the facilitator’s [supported networks and assets](https://facilitator-xpay.llc/supported).
 
-> **Software should be able to pay as easily as software can communicate.**
+**3 · Integrate** — Use an x402-compatible client to authorize payment and request the resource. Check endpoint pricing before making paid requests.
 
----
+### Payment capabilities
 
-## 🤖 Why X Pay?
+| Interface | Details |
+| --- | --- |
+| Protocol | x402 v2 · exact scheme |
+| Advertised mainnet | Base · eip155:8453 |
+| Asset | USDC · 6 decimals |
+| Facilitator | [facilitator-xpay.llc](https://facilitator-xpay.llc) |
+| Service catalog | [api-xpay.com](https://www.api-xpay.com/) |
 
-AI agents are becoming capable of doing real work.
+Capabilities above reflect the public endpoint checked on 9 October 2026. BNB mainnet verification is pending; consult the capability endpoint for current integration support.
 
-They can discover services, use tools, access data, automate workflows, and make decisions.
+### Open development
 
-But one major piece is still missing:
+- **[x-pay-sdk](https://github.com/xpayllc/x-pay-sdk)** — SDK repository; integration documentation and releases are still to be published.
+- **[x402scan](https://github.com/xpayllc/x402scan)** — Our fork of Merit Systems’ explorer for ecosystem contributions.
+- **[x402facilitators](https://github.com/xpayllc/x402facilitators)** — Our fork of the community facilitator directory.
 
-### 💳 Payments
+### Directory listing
 
-Most payment systems were built for people.
-
-People open checkout pages.
-People enter card details.
-People create accounts.
-People purchase subscriptions.
-
-That model was never designed for autonomous software.
-
-**X Pay is building for what comes next.**
-
----
-
-## ⚡ Payments for the AI Economy
-
-We believe the next generation of software needs payments that are:
-
-### 🤖 Agent Friendly
-
-AI agents should be able to interact with paid services naturally.
-
-### 🌍 Global
-
-Software operates across borders. Payments should too.
-
-### ⚡ Fast
-
-Digital services should not be slowed down by outdated payment experiences.
-
-### 💸 Pay-As-You-Use
-
-Not every product needs a subscription.
-
-Pay for what you use, when you use it.
-
-### 🔗 Flexible
-
-The future of payments will connect traditional finance and onchain payments.
-
----
-
-## 🌐 One Payment World
-
-X Pay is building toward a world where different payment methods work together.
-
-### 🏦 Bank
-
-Traditional payment rails for businesses, applications, and everyday users.
-
-### 🔵 Base
-
-Fast and efficient onchain payments.
-
-### 🟡 BNB Chain
-
-Scalable onchain payments for the global digital economy.
-
-<br>
-
-### **Bank + Onchain + AI**
-
-One connected payment experience.
-
----
-
-## 💡 What We Believe
-
-> ### Payments were built for people.
->
-> ### The next generation needs payments built for software.
-
-We believe:
-
-* 🤖 AI agents need native payment capabilities
-* ⚡ Payments should happen with minimal friction
-* 💳 Pay-per-use should be easier than subscriptions
-* 🌍 Digital payments should work globally
-* 🔗 Bank and onchain payments should work together
-* 🧠 Software should be able to transact intelligently
-* 🚀 Payments should become a native part of the internet
-
----
-
-## 🎯 Our Mission
-
-Our mission is simple:
-
-### **Make payments native to software.**
-
-We are building toward a future where:
-
-**AI agents, applications, APIs, and digital services can exchange value naturally.**
-
-No unnecessary friction.
-
-No outdated checkout experiences.
-
-No forcing autonomous software into payment systems designed only for humans.
-
----
-
-## 🔮 The Future We See
-
-<div align="center">
-
-### 🤖 Discover
-
-### ↓
-
-### 🧠 Decide
-
-### ↓
-
-### 💳 Pay
-
-### ↓
-
-### ⚡ Continue
-
-</div>
-
-The next generation of software will not just communicate.
-
-It will transact.
-
-And X Pay is building the payment layer for that future.
-
----
-
-## 🛠️ Built For
-
-|    |                            |
-| -- | -------------------------- |
-| 🤖 | AI Agents                  |
-| 🧠 | AI Products                |
-| 🌐 | APIs                       |
-| ⚙️ | SaaS Platforms             |
-| 📊 | Data Services              |
-| 💻 | Developers                 |
-| 🔗 | Onchain Applications       |
-| 🌍 | Global Internet Businesses |
+X Pay is [approved for Base mainnet directory inclusion by X402blockchains](https://github.com/X402blockchains/x402blockchain/issues/3#issuecomment-6065021276). This is a directory listing, not a security audit or certification of payment volume.
 
 ---
 
 <div align="center">
 
-## 💚 X Pay LLC
+**X Pay LLC** · Pay anything. Instantly. Programmatically.
 
-### **Pay Anything. Instantly. Programmatically.**
-
-Building the payment layer for **AI agents and autonomous software**.
-
-<br>
-
-**🤖 AI • 💳 Payments • 🌐 APIs • 🔵 Base • 🟡 BNB Chain • ⚡ Automation**
-
-<br>
-
-### ⚡ The Future of Payments is Programmable.
+[Website](https://x-pay.llc/) &nbsp; / &nbsp; [APIs](https://www.api-xpay.com/) &nbsp; / &nbsp; [X](https://x.com/x_pay_llc) &nbsp; / &nbsp; [Telegram](https://t.me/xpay_llc)
 
 </div>
