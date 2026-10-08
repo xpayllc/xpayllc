@@ -2,8 +2,7 @@
 
 <img src="https://www.api-xpay.com/logo.png" alt="X Pay" width="88" height="88">
 
-# X Pay
-### Payments for software. Built around x402.
+# X Pay | x402 Facilitator### Payments for software. Built around x402.
 
 Pay-per-request APIs and programmable payments for agents, applications, and developers.
 
