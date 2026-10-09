@@ -42,7 +42,7 @@ X Pay connects paid API access with on-chain payments. Explore utility and AI en
 | --- | --- |
 | Protocol | x402 v2 · exact scheme |
 | Base mainnet | eip155:8453 · USDC · 6 decimals · EIP-3009 |
-| BNB mainnet | eip155:56 · Binance-Peg USDC · 18 decimals · Permit2 |
+| BNB mainnet | eip155:56 · Binance-Peg USDC · 18 decimals; see route details in the guide |
 | Facilitator | [facilitator-xpay.llc](https://facilitator-xpay.llc) |
 | Service catalog | [api-xpay.com](https://www.api-xpay.com/) |
 
@@ -50,7 +50,7 @@ Check current capabilities for [Base](https://facilitator-xpay.llc/supported) an
 
 **[Merchant integration guide →](DEVELOPERS.md)** · [Hosted documentation](https://facilitator-xpay.llc/docs) · [Merchant onboarding](mailto:chris@x-pay.llc)
 
-The guide covers authentication, network endpoints, payment verification, settlement and error handling. Confirm fees and rate limits during onboarding.
+The guide covers authentication, network endpoints, payment verification, settlement, error handling and [existing settlement evidence](DEVELOPERS.md#existing-settlement-evidence). BNB contract receipts and the advertised Permit2 API route are documented separately. Confirm fees and rate limits during onboarding.
 
 ### Open development
 
@@ -71,4 +71,5 @@ X Pay is [approved for Base and BNB mainnet directory inclusion by X402blockchai
 [Website](https://x-pay.llc/) &nbsp; / &nbsp; [APIs](https://www.api-xpay.com/) &nbsp; / &nbsp; [X](https://x.com/x_pay_llc) &nbsp; / &nbsp; [Telegram](https://t.me/xpay_llc)
 
 </div>
+
 
