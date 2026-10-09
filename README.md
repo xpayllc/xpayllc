@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://www.api-xpay.com/logo.png" alt="X Pay" width="88" height="88">
+<img src="https://github.com/xpayllc.png?size=240" alt="X Pay" width="88" height="88">
 
 # X Pay | x402 Facilitator
 
@@ -12,6 +12,7 @@ Pay-per-request APIs and programmable payments for agents, applications, and dev
 
 ![x402 v2](https://img.shields.io/badge/x402-v2-111111?style=flat-square)
 ![Base](https://img.shields.io/badge/Network-Base-0052FF?style=flat-square)
+![BNB](https://img.shields.io/badge/Network-BNB_Chain-F0B90B?style=flat-square)
 ![USDC](https://img.shields.io/badge/Payments-USDC-2775CA?style=flat-square)
 
 </div>
@@ -40,12 +41,16 @@ X Pay connects paid API access with on-chain payments. Explore utility and AI en
 | Interface | Details |
 | --- | --- |
 | Protocol | x402 v2 · exact scheme |
-| Advertised mainnet | Base · eip155:8453 |
-| Asset | USDC · 6 decimals |
+| Base mainnet | eip155:8453 · USDC · 6 decimals · EIP-3009 |
+| BNB mainnet | eip155:56 · Binance-Peg USDC · 18 decimals · Permit2 |
 | Facilitator | [facilitator-xpay.llc](https://facilitator-xpay.llc) |
 | Service catalog | [api-xpay.com](https://www.api-xpay.com/) |
 
-Capabilities above reflect the public endpoint checked on 9 October 2026. BNB mainnet verification is pending; consult the capability endpoint for current integration support.
+Check current capabilities for [Base](https://facilitator-xpay.llc/supported) and [BNB](https://facilitator-xpay.llc/bsc/supported) before integrating. Merchant API keys are required for verification and settlement; capability endpoints are public.
+
+**[Merchant integration guide →](DEVELOPERS.md)** · [Hosted documentation](https://facilitator-xpay.llc/docs) · [Merchant onboarding](mailto:chris@x-pay.llc)
+
+The guide covers authentication, network endpoints, payment verification, settlement and error handling. Confirm fees and rate limits during onboarding.
 
 ### Open development
 
@@ -55,7 +60,7 @@ Capabilities above reflect the public endpoint checked on 9 October 2026. BNB ma
 
 ### Directory listing
 
-X Pay is [approved for Base mainnet directory inclusion by X402blockchains](https://github.com/X402blockchains/x402blockchain/issues/3#issuecomment-6065021276). This is a directory listing, not a security audit or certification of payment volume.
+X Pay is [approved for Base and BNB mainnet directory inclusion by X402blockchains](https://github.com/X402blockchains/x402blockchain/blob/main/listings/approved/xpay.md). This is a directory listing, not a security audit or certification of payment volume.
 
 ---
 
@@ -66,3 +71,4 @@ X Pay is [approved for Base mainnet directory inclusion by X402blockchains](http
 [Website](https://x-pay.llc/) &nbsp; / &nbsp; [APIs](https://www.api-xpay.com/) &nbsp; / &nbsp; [X](https://x.com/x_pay_llc) &nbsp; / &nbsp; [Telegram](https://t.me/xpay_llc)
 
 </div>
+
