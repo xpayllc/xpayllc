@@ -33,7 +33,7 @@ All paths use `https://facilitator-xpay.llc`.
 | POST | `/verify` | `/bsc/verify` | Merchant key |
 | POST | `/settle` | `/bsc/settle` | Merchant key |
 
-Base mainnet is `eip155:8453`: Circle USDC, 6 decimals, EIP-3009 authorization. BNB mainnet is `eip155:56`: Binance-Peg USDC, 18 decimals, Permit2. Never reuse Base authorization fields or decimal conversion for BNB.
+Base mainnet is `eip155:8453`: Circle USDC, 6 decimals, EIP-3009 authorization. BNB mainnet is `eip155:56`: Binance-Peg USDC, 18 decimals. The public API advertises Permit2; the separately observed contract below uses ERC-20 approval and `settleExact`. These routes must not be treated as interchangeable. Never reuse Base authorization fields or decimal conversion for BNB.
 
 ```sh
 curl --fail --silent --show-error https://facilitator-xpay.llc/supported
@@ -96,6 +96,15 @@ Use integer amounts: 1 Base USDC = 1,000,000 atomic units; 1 BNB Binance-Peg USD
 
 ## Validation scope
 
-The hosted documentation was checked on 9 October 2026. Public discovery and authentication rejection checks do not prove a complete paid integration. An authenticated end-to-end verification, settlement and resource-delivery test remains required for the merchant integration. No new payment was initiated to write this guide. This is integration guidance, not a security audit or uptime guarantee.
+The hosted documentation was checked on 9 October 2026. Public discovery and authentication rejection checks do not prove a complete paid integration. Existing on-chain settlement evidence is available below. The corresponding authenticated API responses and resource-delivery evidence have not been reviewed, so end-to-end API validation remains unconfirmed. No new payment was initiated to write this guide. This is integration guidance, not a security audit or uptime guarantee.
 
 Report documentation issues at https://github.com/xpayllc/xpayllc/issues. Include only redacted errors and public transaction hashes; never include keys, private keys or reusable signed authorizations.
+
+## Existing settlement evidence
+
+- **Base:** [X Pay application with ten receipt links](https://github.com/Merit-Systems/x402scan/pull/1218). These are submitted settlement records; this documentation update did not independently revalidate all ten receipts.
+- **BNB:** [Verified XPayFacilitator contract](https://bscscan.com/address/0xc27aac475a332ede1290f60a2785dcca49f40cb6#code). Its published interface uses token allowance, `settleExact` and `settleExactBatch`.
+- **BNB checked receipt:** [0x0e1c56ed…35b635b](https://bscscan.com/tx/0x0e1c56edfb86dd263a222aff52b36c8dce3379728cfc905c46f97abea35b635b), successful on 9 October 2026 at 12:01:19 UTC, block 126632228. It transferred 0.002 Binance-Peg USDC from `0xddb2ca4852cc4a00896f3c6ea4f1ff219abf2a46` to the published facilitator signer `0x589a2314a2e05f45e40c4823da3ba58d421db3d8`, which submitted the transaction.
+
+This receipt establishes a successful token settlement through that contract. It does not establish use of `/bsc/verify`, `/bsc/settle`, Permit2 or delivery of an API resource. Confirm the deployed API-to-contract mapping before choosing an integration route. Contract verification means source matching, not a security audit. No new transaction was initiated for this review.
+
