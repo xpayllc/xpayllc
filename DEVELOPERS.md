@@ -1,43 +1,101 @@
-# X Pay developer starting point
+# X Pay merchant integration guide
 
-[Website](https://x-pay.llc/) · [API catalog](https://www.api-xpay.com/) · [Profile](README.md)
+[Website](https://x-pay.llc/) · [Hosted guide](https://facilitator-xpay.llc/docs) · [Paid API catalog](https://www.api-xpay.com/openapi.json)
 
-## Choose the right interface
+## Choose the right service
 
-| Purpose | Public interface |
-| --- | --- |
-| Learn about X Pay | https://x-pay.llc/ |
-| Discover paid resources | https://www.api-xpay.com/openapi.json |
-| Inspect facilitator capabilities | https://facilitator-xpay.llc/supported |
+The paid API catalog sells resources. The facilitator verifies signed payment authorizations and submits settlements for merchants. These are separate roles. A seller receipt is not automatically evidence of which facilitator processed it.
 
-The API service sells resources. The facilitator handles payment verification and settlement. A seller receiving a payment and a facilitator submitting settlement are separate roles, even when one operator provides both.
+## Merchant access
 
-## Inspect before integrating
+Contact **chris@x-pay.llc** for merchant onboarding and a merchant API key. Agree on supported networks, payload compatibility, fees and rate limits during onboarding. No self-service key issuance or published SDK release is promised by this guide.
 
-These read-only requests do not authorize a payment:
+Keep the key in a server-side secret manager or environment variable named `XPAY_MERCHANT_API_KEY`. Never put it in browser JavaScript, a public repository, screenshots or support messages. A merchant key authenticates the merchant; it is not a wallet private key and does not replace the payer's signed authorization.
 
-```sh
-curl --fail --show-error --silent https://facilitator-xpay.llc/supported
-curl --fail --show-error --silent https://www.api-xpay.com/openapi.json
+Use either header:
+
+```text
+X-API-Key: YOUR_MERCHANT_API_KEY
+Authorization: Bearer YOUR_MERCHANT_API_KEY
 ```
 
-The capability response checked on 9 October 2026 advertised x402 v2, the exact scheme, Base mainnet (`eip155:8453`) and USDC with 6 decimals. The advertised token contract was `0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913`, using `transferWithAuthorization`. Always read the current response; this document is not a live availability guarantee.
+Choose one authentication header. Contact merchant support to revoke or replace an exposed key.
 
-## Payment flow
+## Networks and endpoints
 
-1. Select a resource and inspect its method, parameters and price.
-2. Request the resource and inspect the returned HTTP 402 payment requirements where payment is required.
-3. Confirm the network, asset, recipient, amount and authorization expiry before signing with a compatible x402 client.
-4. The service and facilitator process verification and settlement according to their integration. Only a successful confirmed settlement is payment evidence.
-5. Keep the settlement transaction hash and resource response for reconciliation.
+All paths use `https://facilitator-xpay.llc`.
 
-Use the current service documentation and a compatible x402 client for request formats. This guide does not provide an executable paid transaction or claim that the SDK repository has a published release. Never put private keys, API secrets or reusable signed authorizations in GitHub issues.
+| Method | Base | BNB Smart Chain | Access |
+| --- | --- | --- | --- |
+| GET | `/health` | `/bsc/health` | Public |
+| GET | `/supported` | `/bsc/supported` | Public |
+| GET | `/facilitator/status` | `/bsc/facilitator/status` | Public |
+| POST | `/verify` | `/bsc/verify` | Merchant key |
+| POST | `/settle` | `/bsc/settle` | Merchant key |
 
-## Troubleshooting and support
+Base mainnet is `eip155:8453`: Circle USDC, 6 decimals, EIP-3009 authorization. BNB mainnet is `eip155:56`: Binance-Peg USDC, 18 decimals, Permit2. Never reuse Base authorization fields or decimal conversion for BNB.
 
-- Unsupported network or token: compare the requested payment with the live capability response.
-- Unexpected amount: check token decimals and raw units; 1 USDC is 1,000,000 base units.
-- Request failure after signing: inspect settlement status before retrying; do not blindly repeat payment.
-- Different dashboard totals: compare the same network, period, addresses and role. Seller receipts are not automatically facilitator settlement totals.
+```sh
+curl --fail --silent --show-error https://facilitator-xpay.llc/supported
+curl --fail --silent --show-error https://facilitator-xpay.llc/bsc/supported
+curl --fail --silent --show-error https://facilitator-xpay.llc/facilitator/status
+curl --fail --silent --show-error https://facilitator-xpay.llc/bsc/facilitator/status
+```
 
-For documentation corrections, [open an issue](https://github.com/xpayllc/xpayllc/issues/new) with the public URL, expected behavior and redacted response. Contact X Pay through the [official website](https://x-pay.llc/) for service support.
+Health only proves reachability. Inspect current capabilities and settlement status before integration. Native network gas is required for settlement. Read token and Permit2 details from current capabilities/status and confirm them during onboarding.
+
+## Request contract
+
+Both payment endpoints accept a JSON object with `paymentPayload` and `paymentRequirements`. Preserve the merchant's original requirements and the compatible client's signed payload; do not invent a signature or change signed terms.
+
+Conceptual structure (placeholders, not an executable authorization):
+
+```json
+{
+  "paymentPayload": "REPLACE WITH THE CLIENT'S SIGNED PAYMENT OBJECT",
+  "paymentRequirements": "REPLACE WITH THE MERCHANT'S ORIGINAL REQUIREMENTS OBJECT"
+}
+```
+
+Each placeholder above must be an object, not a string, in the real request. Requirements identify the exact scheme, network, asset, payTo, amount in integer atomic units and timeout. Standard v2 payloads include `x402Version: 2`, accepted terms and the signed payload.
+
+For Base EIP-3009, the inspected implementation uses `payload.signature` and `payload.authorization` with `from`, `to`, `value`, `validAfter`, `validBefore` and a bytes32 `nonce`. Values/timestamps are integer strings. Accepted terms, authorization and original requirements must agree. Confirm the deployed schema during onboarding. For BNB, use a compatible exact/Permit2 client and obtain the supported payload schema; do not adapt the Base example by changing only its network.
+
+## Verify from your server
+
+Save the actual request object securely as `payment-request.json`. This example verifies only; it does not submit settlement:
+
+```sh
+curl --silent --show-error \
+  -X POST https://facilitator-xpay.llc/verify \
+  -H "Content-Type: application/json" \
+  -H "X-API-Key: ${XPAY_MERCHANT_API_KEY}" \
+  --data-binary @payment-request.json
+```
+
+For BNB use `/bsc/verify`. Do not log the expanded key or signed payload. Check the response body: HTTP 200 can contain `isValid: false`. A valid verification is not a settlement receipt.
+
+## Settle and deliver
+
+Only after validating the payer's consent and a successful verification, submit the same request object to the matching `/settle` endpoint. This operation can move funds. Require `success: true`, confirm its network and transaction receipt, and match the recipient, asset and amount before delivering the resource.
+
+The inspected Base implementation supports an `Idempotency-Key` header and can return HTTP 202 with `success: false` and `SETTLEMENT_PENDING`. Pending is not paid. Persist the payment state and transaction hash; reconcile before retrying. Do not assume Base idempotency semantics also apply to BNB without confirming them.
+
+Bind every payment to your merchant account, resource/order, expected recipient, asset, amount and network. Deduplicate successful receipts. Never accept customer-supplied requirements as your source of truth.
+
+## Errors and reconciliation
+
+- **401:** missing or rejected merchant credentials; check onboarding and server configuration.
+- **400 / invalid payload:** check the current schema, network, exact amount, expiry and authorization.
+- **200 with `isValid: false`:** verification rejected; inspect the reason, do not deliver.
+- **202 / pending, timeout or connection loss:** settlement may still be in progress; reconcile before retrying or asking the payer to sign again.
+- **429:** back off and follow any retry guidance; confirm limits with support.
+- **Server error:** do not infer that payment failed solely from the HTTP status; inspect any receipt and reconcile.
+
+Use integer amounts: 1 Base USDC = 1,000,000 atomic units; 1 BNB Binance-Peg USDC = 1,000,000,000,000,000,000 atomic units. Do not use floating-point arithmetic for payment amounts.
+
+## Validation scope
+
+The hosted documentation was checked on 9 October 2026. Public discovery and authentication rejection checks do not prove a complete paid integration. An authenticated end-to-end verification, settlement and resource-delivery test remains required for the merchant integration. No new payment was initiated to write this guide. This is integration guidance, not a security audit or uptime guarantee.
+
+Report documentation issues at https://github.com/xpayllc/xpayllc/issues. Include only redacted errors and public transaction hashes; never include keys, private keys or reusable signed authorizations.
