@@ -96,7 +96,7 @@ Use integer amounts: 1 Base USDC = 1,000,000 atomic units; 1 BNB Binance-Peg USD
 
 ## Validation scope
 
-The hosted documentation was checked on 9 October 2026. Public discovery and authentication rejection checks do not prove a complete paid integration. Existing on-chain settlement evidence is available below. The corresponding authenticated API responses and resource-delivery evidence have not been reviewed, so end-to-end API validation remains unconfirmed. No new payment was initiated to write this guide. This is integration guidance, not a security audit or uptime guarantee.
+The hosted documentation was checked on 9 October 2026. Public discovery and authentication rejection checks do not prove a complete paid integration. Existing successful BNB settlement evidence has been checked, including a receipt using the same Permit2 proxy advertised by the live API. The corresponding HTTP verification/settlement responses and resource-delivery logs were not part of this review. No new payment was initiated to write this guide. This is integration guidance, not a security audit or uptime guarantee.
 
 Report documentation issues at https://github.com/xpayllc/xpayllc/issues. Include only redacted errors and public transaction hashes; never include keys, private keys or reusable signed authorizations.
 
@@ -107,4 +107,18 @@ Report documentation issues at https://github.com/xpayllc/xpayllc/issues. Includ
 - **BNB checked receipt:** [0x0e1c56ed…35b635b](https://bscscan.com/tx/0x0e1c56edfb86dd263a222aff52b36c8dce3379728cfc905c46f97abea35b635b), successful on 9 October 2026 at 12:01:19 UTC, block 126632228. It transferred 0.002 Binance-Peg USDC from `0xddb2ca4852cc4a00896f3c6ea4f1ff219abf2a46` to the published facilitator signer `0x589a2314a2e05f45e40c4823da3ba58d421db3d8`, which submitted the transaction.
 
 This receipt establishes a successful token settlement through that contract. It does not establish use of `/bsc/verify`, `/bsc/settle`, Permit2 or delivery of an API resource. Confirm the deployed API-to-contract mapping before choosing an integration route. Contract verification means source matching, not a security audit. No new transaction was initiated for this review.
+
+
+## Verified BNB Permit2 settlement
+
+The [existing successful transaction 0xaaaa19ab…80cfa3a](https://bscscan.com/tx/0xaaaa19aba9a819a7914b094ce71b6f1374e6222a2f77840df4150dd8580cfa3a) was checked on 10 October 2026:
+
+- Status: Success; block 125076712; 1 October 2026 at 09:29:52 UTC.
+- Transaction sender: published X Pay signer `0x589a2314a2e05f45e40c4823da3ba58d421db3d8`.
+- Contract: `0x402085c248eea27d92e8b30b2c58ed07f9e20001`, matching the Permit2 proxy reported by the live `/bsc/facilitator/status` endpoint.
+- Transfer: 0.01 Binance-Peg USDC to `0x7fab0821ad5546634989daf96131d5ade2b35cc6`.
+
+The live `/bsc/supported` and `/bsc/facilitator/status` responses consistently advertise BNB mainnet, USDC with 18 decimals and Permit2. The checked status reported settlement enabled and a positive gas balance; these are point-in-time observations. An unauthenticated empty `/bsc/verify` request correctly returned HTTP 401.
+
+This confirms historical settlement evidence for the advertised proxy, separate from the approval-based contract described above. It does not establish which HTTP endpoint submitted the historical transaction or prove resource delivery. No repeat payment is required to establish this existing on-chain evidence; no new payment or production change was made during this review.
 
